@@ -1,0 +1,24 @@
+belt_reload_node:
+  ros__parameters:
+    # Distance added to the latest measured position for each execute action.
+    step_mm: 100.0
+
+    # Arrival is accepted after remaining within this tolerance continuously.
+    position_tolerance_mm: 3.0
+    stable_time_sec: 0.1
+
+    # CAN command retransmission and feedback monitoring period.
+    control_period_ms: 20
+
+    # Abort the action if valid position feedback is not received in time.
+    feedback_timeout_ms: 500
+
+    # Maximum duration of one execute or reset_origin action.
+    motion_timeout_sec: 15.0
+
+    # Read the shooting controller state; RELOAD is unlocked only after
+    # a successful RUNNING (1) -> READY (2) transition.
+    operation_state_topic: /shoot_belt/operation_state
+
+    # Latched state exposed to target_gui.
+    ready_topic: /reload/ready
